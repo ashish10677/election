@@ -40,14 +40,14 @@
     "absolutePath": "/home/ash_mishra/election/smart-contract/contracts/IElection.sol",
     "exportedSymbols": {
       "IElection": [
-        140
+        142
       ]
     },
-    "id": 141,
+    "id": 143,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 129,
+        "id": 131,
         "literals": [
           "solidity",
           "^",
@@ -63,9 +63,9 @@
         "contractKind": "interface",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 140,
+        "id": 142,
         "linearizedBaseContracts": [
-          140
+          142
         ],
         "name": "IElection",
         "nodeType": "ContractDefinition",
@@ -73,7 +73,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 134,
+            "id": 136,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -81,15 +81,15 @@
             "name": "addCandidate",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 132,
+              "id": 134,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 131,
+                  "id": 133,
                   "name": "_name",
                   "nodeType": "VariableDeclaration",
-                  "scope": 134,
+                  "scope": 136,
                   "src": "137:12:2",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -98,7 +98,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 130,
+                    "id": 132,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "137:6:2",
@@ -115,12 +115,12 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 133,
+              "id": 135,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "157:0:2"
             },
-            "scope": 140,
+            "scope": 142,
             "src": "115:43:2",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -129,7 +129,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 139,
+            "id": 141,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -137,15 +137,15 @@
             "name": "vote",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 137,
+              "id": 139,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 136,
+                  "id": 138,
                   "name": "_candidateId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 139,
+                  "scope": 141,
                   "src": "203:20:2",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -154,7 +154,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 135,
+                    "id": 137,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "203:7:2",
@@ -171,19 +171,19 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 138,
+              "id": 140,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "233:0:2"
             },
-            "scope": 140,
+            "scope": 142,
             "src": "189:45:2",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "external"
           }
         ],
-        "scope": 141,
+        "scope": 143,
         "src": "26:210:2"
       }
     ],
@@ -193,14 +193,14 @@
     "absolutePath": "/home/ash_mishra/election/smart-contract/contracts/IElection.sol",
     "exportedSymbols": {
       "IElection": [
-        140
+        142
       ]
     },
-    "id": 141,
+    "id": 143,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 129,
+        "id": 131,
         "literals": [
           "solidity",
           "^",
@@ -216,9 +216,9 @@
         "contractKind": "interface",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 140,
+        "id": 142,
         "linearizedBaseContracts": [
-          140
+          142
         ],
         "name": "IElection",
         "nodeType": "ContractDefinition",
@@ -226,7 +226,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 134,
+            "id": 136,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -234,15 +234,15 @@
             "name": "addCandidate",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 132,
+              "id": 134,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 131,
+                  "id": 133,
                   "name": "_name",
                   "nodeType": "VariableDeclaration",
-                  "scope": 134,
+                  "scope": 136,
                   "src": "137:12:2",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -251,7 +251,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 130,
+                    "id": 132,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "137:6:2",
@@ -268,12 +268,12 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 133,
+              "id": 135,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "157:0:2"
             },
-            "scope": 140,
+            "scope": 142,
             "src": "115:43:2",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -282,7 +282,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 139,
+            "id": 141,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -290,15 +290,15 @@
             "name": "vote",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 137,
+              "id": 139,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 136,
+                  "id": 138,
                   "name": "_candidateId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 139,
+                  "scope": 141,
                   "src": "203:20:2",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -307,7 +307,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 135,
+                    "id": 137,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "203:7:2",
@@ -324,19 +324,19 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 138,
+              "id": 140,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "233:0:2"
             },
-            "scope": 140,
+            "scope": 142,
             "src": "189:45:2",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "external"
           }
         ],
-        "scope": 141,
+        "scope": 143,
         "src": "26:210:2"
       }
     ],
@@ -348,5 +348,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.2",
-  "updatedAt": "2020-03-29T20:45:14.484Z"
+  "updatedAt": "2020-03-29T21:38:02.322Z"
 }

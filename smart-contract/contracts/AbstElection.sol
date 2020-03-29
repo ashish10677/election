@@ -9,7 +9,7 @@ contract AbstElection is IElection {
         uint256 voteCount;
     }
 
-    Candidate[] internal candidates;
+    Candidate[] public candidates;
 
     mapping(bytes32 => uint256) public candidatesMap;
 
@@ -19,7 +19,7 @@ contract AbstElection is IElection {
 
     function addCandidate(string _name) public {
         candidateCount++;
-        bytes32 index = keccak256(candidateCount, _name);
+        bytes32 index = keccak256(block.timestamp, candidateCount, _name);
 
         Candidate memory candidate;
         candidate.name = _name;

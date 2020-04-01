@@ -12,5 +12,5 @@ interface IElection {
     function getAllCandidates() external returns (bytes32[] ids);
 
     //Get each candidate
-    function getCandidate(bytes32 candidateId) external returns (string name, uint256 voteCount);
+    function getCandidate(bytes32 candidateId) external returns (string name, uint256 voteCount, bytes32 id);
 }

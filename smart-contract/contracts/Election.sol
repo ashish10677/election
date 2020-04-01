@@ -20,8 +20,8 @@ contract Election is AbstElection {
         candidates[_candidateId].voteCount++;
     }
 
-    function getCandidate(bytes32 candidateId) external returns (string name, uint256 voteCount) {
+    function getCandidate(bytes32 candidateId) external returns (string name, uint256 voteCount, bytes32 id) {
         uint256 _candidateId = candidatesMap[candidateId];
-        return (candidates[_candidateId].name, candidates[_candidateId].voteCount);
+        return (candidates[_candidateId].name, candidates[_candidateId].voteCount, candidates[_candidateId].id);
     }
 }

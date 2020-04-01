@@ -32,6 +32,10 @@
         {
           "name": "voteCount",
           "type": "uint256"
+        },
+        {
+          "name": "id",
+          "type": "bytes32"
         }
       ],
       "payable": false,
@@ -100,7 +104,7 @@
         "id": 2,
         "nodeType": "ImportDirective",
         "scope": 114,
-        "sourceUnit": 219,
+        "sourceUnit": 227,
         "src": "26:25:0",
         "symbolAliases": [],
         "unitAlias": ""
@@ -114,10 +118,10 @@
               "id": 3,
               "name": "IElection",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 218,
+              "referencedDeclaration": 226,
               "src": "79:9:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IElection_$218",
+                "typeIdentifier": "t_contract$_IElection_$226",
                 "typeString": "contract IElection"
               }
             },
@@ -127,7 +131,7 @@
           }
         ],
         "contractDependencies": [
-          218
+          226
         ],
         "contractKind": "contract",
         "documentation": null,
@@ -135,7 +139,7 @@
         "id": 113,
         "linearizedBaseContracts": [
           113,
-          218
+          226
         ],
         "name": "AbstElection",
         "nodeType": "ContractDefinition",
@@ -472,7 +476,7 @@
                           "name": "block",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 223,
+                          "referencedDeclaration": 231,
                           "src": "462:5:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_block",
@@ -561,7 +565,7 @@
                       "name": "keccak256",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 227,
+                      "referencedDeclaration": 235,
                       "src": "452:9:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_sha3_pure$__$returns$_t_bytes32_$",
@@ -1009,7 +1013,7 @@
             "scope": 113,
             "src": "335:399:0",
             "stateMutability": "nonpayable",
-            "superFunction": 197,
+            "superFunction": 203,
             "visibility": "public"
           },
           {
@@ -1422,7 +1426,7 @@
             "scope": 113,
             "src": "740:213:0",
             "stateMutability": "nonpayable",
-            "superFunction": 208,
+            "superFunction": 214,
             "visibility": "external"
           }
         ],
@@ -1459,7 +1463,7 @@
         "id": 2,
         "nodeType": "ImportDirective",
         "scope": 114,
-        "sourceUnit": 219,
+        "sourceUnit": 227,
         "src": "26:25:0",
         "symbolAliases": [],
         "unitAlias": ""
@@ -1473,10 +1477,10 @@
               "id": 3,
               "name": "IElection",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 218,
+              "referencedDeclaration": 226,
               "src": "79:9:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IElection_$218",
+                "typeIdentifier": "t_contract$_IElection_$226",
                 "typeString": "contract IElection"
               }
             },
@@ -1486,7 +1490,7 @@
           }
         ],
         "contractDependencies": [
-          218
+          226
         ],
         "contractKind": "contract",
         "documentation": null,
@@ -1494,7 +1498,7 @@
         "id": 113,
         "linearizedBaseContracts": [
           113,
-          218
+          226
         ],
         "name": "AbstElection",
         "nodeType": "ContractDefinition",
@@ -1831,7 +1835,7 @@
                           "name": "block",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 223,
+                          "referencedDeclaration": 231,
                           "src": "462:5:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_block",
@@ -1920,7 +1924,7 @@
                       "name": "keccak256",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 227,
+                      "referencedDeclaration": 235,
                       "src": "452:9:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_sha3_pure$__$returns$_t_bytes32_$",
@@ -2368,7 +2372,7 @@
             "scope": 113,
             "src": "335:399:0",
             "stateMutability": "nonpayable",
-            "superFunction": 197,
+            "superFunction": 203,
             "visibility": "public"
           },
           {
@@ -2781,7 +2785,7 @@
             "scope": 113,
             "src": "740:213:0",
             "stateMutability": "nonpayable",
-            "superFunction": 208,
+            "superFunction": 214,
             "visibility": "external"
           }
         ],
@@ -2797,5 +2801,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.2",
-  "updatedAt": "2020-04-01T19:54:01.400Z"
+  "updatedAt": "2020-04-01T19:57:52.651Z"
 }

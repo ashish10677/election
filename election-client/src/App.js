@@ -11,7 +11,19 @@ class App extends React.Component {
   componentDidMount() {
     console.log("Component mounted");
     let electionBridge = new ElectionBridge();
-    electionBridge.getAllCandidates();
+    electionBridge.getAllCandidates().then(res => {
+      console.log(res);
+      let promise = [];
+      for(let i in res) {
+        promise.push(electionBridge.getCandidate(res[i]));
+      }
+      return Promise.all(promise);
+    }).then(candidates => {
+      console.log(candidates);
+    })
+    .catch(err => {
+      console.log(err);
+    })
   }
 
   render() {

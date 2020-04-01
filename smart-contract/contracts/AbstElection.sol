@@ -10,17 +10,15 @@ contract AbstElection is IElection {
         bytes32 id;
     }
 
-    Candidate[] public candidates;
+    Candidate[] internal candidates;
 
-    mapping(bytes32 => uint256) public candidatesMap;
+    mapping(bytes32 => uint256) internal candidatesMap;
 
-    uint256 public candidateCount;
-
-    mapping(address => bool) public voters;
+    mapping(address => bool) internal voters;
 
     function addCandidate(string _name) public {
-        candidateCount++;
-        bytes32 index = keccak256(block.timestamp, candidateCount, _name);
+        uint256 internalId = candidates.length;
+        bytes32 index = keccak256(block.timestamp, internalId, _name, "addCandidate");
 
         Candidate memory candidate;
         candidate.name = _name;
@@ -29,13 +27,13 @@ contract AbstElection is IElection {
 
         candidates.push(candidate);
 
-        candidatesMap[index] = candidateCount;
+        candidatesMap[index] = internalId;
 
     }
 
     function getAllCandidates() external returns (bytes32[]) {
-        bytes32[] memory ids;
-        for(uint256 i = 0; i < candidateCount; i++) {
+        bytes32[] ids;
+        for(uint256 i = 0; i < candidates.length; i++) {
             ids[i] = candidates[i].id;
         }
         return ids;

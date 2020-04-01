@@ -13,10 +13,15 @@ contract Election is AbstElection {
         uint256 _candidateId = candidatesMap[candidateId];
 
         require(!voters[msg.sender]);
-        require(_candidateId > 0 && _candidateId <= candidateCount);
+        // require(_candidateId > 0 && _candidateId <= candidates.length);
 
         voters[msg.sender] = true;
 
         candidates[_candidateId].voteCount++;
+    }
+
+    function getCandidate(bytes32 candidateId) external returns (string name, uint256 voteCount) {
+        uint256 _candidateId = candidatesMap[candidateId];
+        return (candidates[_candidateId].name, candidates[_candidateId].voteCount);
     }
 }

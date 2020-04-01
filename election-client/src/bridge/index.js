@@ -5,7 +5,7 @@ class ElectionBridge {
 
     constructor() {
         this.web3 = new Web3();
-        this.web3.setProvider("http://127.0.0.1:7545");
+        this.web3.setProvider(this.web3.givenProvider || "http://127.0.0.1:7545");
         this.electionContract = new this.web3.eth.Contract(electionContractAbi.abi, electionContractAbi.address);
     }
 
@@ -13,12 +13,16 @@ class ElectionBridge {
     //     this.electionContract.send(candidateId);
     // }
 
+    call = (functionName, ...args) => {
+        return this.electionContract.methods[functionName].apply(this, args).call();
+    }
+
     getAllCandidates = () => {
-        this.electionContract.methods.getAllCandidates().call({ from: '0x7935e85Ea37EbC028Cf6c68b7588d8350a25dB67'}).then(res => {
-            console.log(res);
-        }).catch(err => {
-            console.log(err);
-        })
+        return this.call("getAllCandidates");
+    }
+
+    getCandidate = (candidateId) => {
+        return this.electionContract.methods.getCandidate(candidateId).call();
     }
 
 

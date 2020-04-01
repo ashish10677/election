@@ -7,6 +7,7 @@ contract AbstElection is IElection {
     struct Candidate {
         string name;
         uint256 voteCount;
+        bytes32 id;
     }
 
     Candidate[] public candidates;
@@ -24,10 +25,19 @@ contract AbstElection is IElection {
         Candidate memory candidate;
         candidate.name = _name;
         candidate.voteCount = 0;
+        candidate.id = index;
 
         candidates.push(candidate);
 
         candidatesMap[index] = candidateCount;
 
+    }
+
+    function getAllCandidates() external returns (bytes32[]) {
+        bytes32[] memory ids;
+        for(uint256 i = 0; i < candidateCount; i++) {
+            ids[i] = candidates[i].id;
+        }
+        return ids;
     }
 }

@@ -7,4 +7,7 @@ interface IElection {
 
     //A function to vote
     function vote(bytes32 _candidateId) external;
+
+    //Get all candidates
+    function getAllCandidates() external returns (bytes32[] ids);
 }

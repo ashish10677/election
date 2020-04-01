@@ -22,7 +22,7 @@ class ElectionBridge {
     }
 
     getCandidate = (candidateId) => {
-        return this.electionContract.methods.getCandidate(candidateId).call();
+        return this.call("getCandidate", candidateId);
     }
 
 

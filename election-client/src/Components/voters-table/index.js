@@ -60,10 +60,8 @@ class VotersTable extends Component {
     voteForCandidate = (record) => {
         let electionBridge = new ElectionBridge();
         electionBridge.voteForCandidate(record.candidateId).then(res => {
-            debugger;
             console.log(res);
         }).catch(err => {
-            debugger;
             console.log(err);
         })
     }

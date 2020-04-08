@@ -18,6 +18,8 @@ contract Election is AbstElection {
         voters[msg.sender] = true;
 
         candidates[_candidateId].voteCount++;
+
+        onVoteCasted(candidateId, candidates[_candidateId].voteCount, msg.sender);
     }
 
     function getCandidate(bytes32 candidateId) external returns (string name, uint256 voteCount, bytes32 id) {

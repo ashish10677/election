@@ -4,6 +4,9 @@ import "./IElection.sol";
 
 
 contract AbstElection is IElection {
+
+    event onVoteCasted(bytes32 candidateId, uint256 voteCount, address voter);
+
     struct Candidate {
         string name;
         uint256 voteCount;

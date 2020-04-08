@@ -1,11 +1,8 @@
 import React from 'react';
 import './App.css';
 import ElectionBridge from './bridge/index';
-import { Select, Row } from 'antd';
 import 'antd/dist/antd.css';
 import VotersTable from './Components/voters-table';
-
-const { Option } = Select;
 
 class App extends React.Component {
 

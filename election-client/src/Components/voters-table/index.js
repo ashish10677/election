@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Table, Button } from 'antd';
+import ElectionBridge from '../../bridge';
 
 class VotersTable extends Component {
 
@@ -57,7 +58,14 @@ class VotersTable extends Component {
     }
 
     voteForCandidate = (record) => {
-        alert(`Candidate Id: ${record.candidateId}`)
+        let electionBridge = new ElectionBridge();
+        electionBridge.voteForCandidate(record.candidateId).then(res => {
+            debugger;
+            console.log(res);
+        }).catch(err => {
+            debugger;
+            console.log(err);
+        })
     }
 
     render() {

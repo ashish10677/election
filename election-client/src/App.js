@@ -1,8 +1,9 @@
 import React from 'react';
 import './App.css';
 import ElectionBridge from './bridge/index';
-import { Select } from 'antd';
+import { Select, Row } from 'antd';
 import 'antd/dist/antd.css';
+import VotersTable from './Components/voters-table';
 
 const { Option } = Select;
 
@@ -44,10 +45,6 @@ class App extends React.Component {
       })
   }
 
-  getDropdownList = () => {
-    return this.state.candidateList.map((candidate) => <Option value={candidate.key}>{candidate.name}</Option>)
-  }
-
   selectCandidate = (value) => {
     this.setState({
       selectedCandidate: value
@@ -56,11 +53,11 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App-header">
-        <h1>Vote Now</h1>
-        <Select style={{width: 250}} onChange={this.selectCandidate} placeholder="Select candidate">
-          {this.getDropdownList()}
-        </Select>
+      <div className="main-container">
+        <h1 className="heading">Voter List</h1>
+        <div className="table-container">
+          <VotersTable dataSource={this.state.candidateList} />
+        </div>
       </div>
     );
   }

@@ -5,7 +5,8 @@ class ElectionBridge {
 
     constructor() {
         this.web3 = new Web3();
-        this.web3.setProvider("http://127.0.0.1:7545");
+        const eventProvider = new Web3.providers.WebsocketProvider('ws://127.0.0.1:7545')
+        this.web3.setProvider(eventProvider);
         this.electionContract = new this.web3.eth.Contract(electionContractAbi.abi, electionContractAbi.address);
         this.watchOnVoteCastedEvent();
     }
@@ -16,14 +17,14 @@ class ElectionBridge {
     }
 
     watchOnVoteCastedEvent = () => {
-        if(!this.events) {
+        if (!this.events) {
             this.initEvents();
         }
         let that = this;
         this.electionContract.events.onVoteCasted().on("data", (event) => {
-            debugger;
             that.events.emit("onVoteCasted", event);
-        })
+        }).on('error', console.error);
+
     }
 
     call = (functionName, ...args) => {
@@ -52,13 +53,13 @@ class ElectionBridge {
 
     voteForCandidate = (candidateId) => {
         return this.send("vote", {
-            from: "0x6801C718bB30d1449578fdD0e740D99Ae9E8B45D"
+            from: "0x7935e85Ea37EbC028Cf6c68b7588d8350a25dB67"
         }, candidateId);
     }
 
     registerOnVoteCasted = (callback) => {
         console.log("Register for onVoteCasted event");
-        if(!this.events) {
+        if (!this.events) {
             this.initEvents()
         }
         this.events.addListener("onVoteCasted", callback);

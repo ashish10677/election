@@ -43,7 +43,6 @@ class App extends React.Component {
 
   updateVotes = (data) => {
     console.log(data);
-    debugger;
     // let candidateList = this.state.candidateList;
   }
 

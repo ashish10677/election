@@ -12,15 +12,15 @@ class App extends React.Component {
       candidateList: [],
       selectedCandidate: null
     }
+    this.electionBridge = new ElectionBridge();
+    this.electionBridge.registerOnVoteCasted(this.updateVotes)
   }
 
   componentDidMount() {
-    console.log("Component mounted");
-    let electionBridge = new ElectionBridge();
-    electionBridge.getAllCandidates().then(res => {
+    this.electionBridge.getAllCandidates().then(res => {
       let promise = [];
       for (let i in res) {
-        promise.push(electionBridge.getCandidate(res[i]));
+        promise.push(this.electionBridge.getCandidate(res[i]));
       }
       return Promise.all(promise);
     }).then(candidates => {
@@ -36,16 +36,15 @@ class App extends React.Component {
       this.setState({
         candidateList
       })
+    }).catch(err => {
+      console.log(err);
     })
-      .catch(err => {
-        console.log(err);
-      })
   }
 
-  selectCandidate = (value) => {
-    this.setState({
-      selectedCandidate: value
-    })
+  updateVotes = (data) => {
+    console.log(data);
+    debugger;
+    // let candidateList = this.state.candidateList;
   }
 
   render() {

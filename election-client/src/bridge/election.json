@@ -36,6 +36,28 @@
             "type": "constructor"
         },
         {
+            "anonymous": false,
+            "inputs": [
+                {
+                    "indexed": false,
+                    "name": "candidateId",
+                    "type": "bytes32"
+                },
+                {
+                    "indexed": false,
+                    "name": "voteCount",
+                    "type": "uint256"
+                },
+                {
+                    "indexed": false,
+                    "name": "voter",
+                    "type": "address"
+                }
+            ],
+            "name": "onVoteCasted",
+            "type": "event"
+        },
+        {
             "constant": false,
             "inputs": [
                 {
@@ -77,5 +99,5 @@
             "type": "function"
         }
     ],
-    "address": "0x6bcb37ebcab577e8d7a6a90febf7802f67d9b899"
+    "address": "0x55ce66184ab6f7f67f7199e81349eb0dc51a436d"
 }

@@ -28,7 +28,7 @@ class App extends React.Component {
       let candidateList = [];
       for (let i in candidates) {
         candidateList.push({
-          key: candidates[i].id,
+          candidateId: candidates[i].id,
           voteCount: candidates[i].voteCount,
           name: candidates[i].name
         })
@@ -42,8 +42,17 @@ class App extends React.Component {
   }
 
   updateVotes = (data) => {
-    console.log(data);
-    // let candidateList = this.state.candidateList;
+    let candidateId = data.returnValues.candidateId;
+    let voteCount = data.returnValues.voteCount;
+    let candidateList = this.state.candidateList.map((candidateDetails) => {
+      if(candidateDetails.candidateId === candidateId) {
+        candidateDetails.voteCount = voteCount;
+      }
+      return candidateDetails;
+    })
+    this.setState({
+      candidateList
+    })
   }
 
   render() {

@@ -48,7 +48,7 @@ class VotersTable extends Component {
     setData = (dataSource) => {
         let newDataSource = dataSource.map((data, index) => {
             data["sno"] = index + 1;
-            data["candidateId"] = data.key;
+            data["candidateId"] = data.candidateId;
             data["key"] = index + 1;
             return data;
         })

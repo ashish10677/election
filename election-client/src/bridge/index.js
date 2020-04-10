@@ -53,7 +53,7 @@ class ElectionBridge {
 
     voteForCandidate = (candidateId) => {
         return this.send("vote", {
-            from: "0x7935e85Ea37EbC028Cf6c68b7588d8350a25dB67"
+            from: "0x5029B997846F0D473B0d76d518041d7D46A7dBbE"
         }, candidateId);
     }
 

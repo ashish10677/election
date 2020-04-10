@@ -1,11 +1,8 @@
 import React from 'react';
 import './App.css';
 import ElectionBridge from './bridge/index';
-import { Select, Row } from 'antd';
 import 'antd/dist/antd.css';
 import VotersTable from './Components/voters-table';
-
-const { Option } = Select;
 
 class App extends React.Component {
 
@@ -15,15 +12,15 @@ class App extends React.Component {
       candidateList: [],
       selectedCandidate: null
     }
+    this.electionBridge = new ElectionBridge();
+    this.electionBridge.registerOnVoteCasted(this.updateVotes)
   }
 
   componentDidMount() {
-    console.log("Component mounted");
-    let electionBridge = new ElectionBridge();
-    electionBridge.getAllCandidates().then(res => {
+    this.electionBridge.getAllCandidates().then(res => {
       let promise = [];
       for (let i in res) {
-        promise.push(electionBridge.getCandidate(res[i]));
+        promise.push(this.electionBridge.getCandidate(res[i]));
       }
       return Promise.all(promise);
     }).then(candidates => {
@@ -31,7 +28,7 @@ class App extends React.Component {
       let candidateList = [];
       for (let i in candidates) {
         candidateList.push({
-          key: candidates[i].id,
+          candidateId: candidates[i].id,
           voteCount: candidates[i].voteCount,
           name: candidates[i].name
         })
@@ -39,15 +36,22 @@ class App extends React.Component {
       this.setState({
         candidateList
       })
+    }).catch(err => {
+      console.log(err);
     })
-      .catch(err => {
-        console.log(err);
-      })
   }
 
-  selectCandidate = (value) => {
+  updateVotes = (data) => {
+    let candidateId = data.returnValues.candidateId;
+    let voteCount = data.returnValues.voteCount;
+    let candidateList = this.state.candidateList.map((candidateDetails) => {
+      if(candidateDetails.candidateId === candidateId) {
+        candidateDetails.voteCount = voteCount;
+      }
+      return candidateDetails;
+    })
     this.setState({
-      selectedCandidate: value
+      candidateList
     })
   }
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Table, Button } from 'antd';
+import ElectionBridge from '../../bridge';
 
 class VotersTable extends Component {
 
@@ -47,7 +48,7 @@ class VotersTable extends Component {
     setData = (dataSource) => {
         let newDataSource = dataSource.map((data, index) => {
             data["sno"] = index + 1;
-            data["candidateId"] = data.key;
+            data["candidateId"] = data.candidateId;
             data["key"] = index + 1;
             return data;
         })
@@ -57,7 +58,12 @@ class VotersTable extends Component {
     }
 
     voteForCandidate = (record) => {
-        alert(`Candidate Id: ${record.candidateId}`)
+        let electionBridge = new ElectionBridge();
+        electionBridge.voteForCandidate(record.candidateId).then(res => {
+            console.log(res);
+        }).catch(err => {
+            console.log(err);
+        })
     }
 
     render() {

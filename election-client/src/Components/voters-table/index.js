@@ -21,6 +21,10 @@ class VotersTable extends Component {
                     dataIndex: 'candidateId',
                     key: 'candidateId',
                 }, {
+                    title: 'Qualification',
+                    dataIndex: 'qualification',
+                    key: 'qualification',
+                }, {
                     title: 'Votes',
                     dataIndex: 'voteCount',
                     key: 'voteCount',
@@ -30,7 +34,7 @@ class VotersTable extends Component {
                     dataIndex: 'action',
                     key: 'action',
                     render: (text, record) => {
-                        return <Button onClick={()=> {this.voteForCandidate(record)}}>Vote</Button>
+                        return <Button onClick={() => { this.voteForCandidate(record) }}>Vote</Button>
                     }
                 }
             ],
@@ -48,7 +52,6 @@ class VotersTable extends Component {
     setData = (dataSource) => {
         let newDataSource = dataSource.map((data, index) => {
             data["sno"] = index + 1;
-            data["candidateId"] = data.candidateId;
             data["key"] = index + 1;
             return data;
         })

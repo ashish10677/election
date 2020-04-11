@@ -9,6 +9,7 @@ class ElectionBridge {
         this.web3.setProvider(eventProvider);
         this.electionContract = new this.web3.eth.Contract(electionContractAbi.abi, electionContractAbi.address);
         this.watchOnVoteCastedEvent();
+        this.watchOnCandidateRegistered();
     }
 
     initEvents = () => {
@@ -25,6 +26,16 @@ class ElectionBridge {
             that.events.emit("onVoteCasted", event);
         }).on('error', console.error);
 
+    }
+
+    watchOnCandidateRegistered = () => {
+        if(!this.events) {
+            this.initEvents();
+        }
+        let that = this;
+        this.electionContract.events.onCandidateRegistered().on("data", (event) => {
+            that.events.emit("onCandidateRegistered", event);
+        }).on('error', console.error);
     }
 
     call = (functionName, ...args) => {
@@ -57,13 +68,26 @@ class ElectionBridge {
         }, candidateId);
     }
 
+    addCandidate = (name, qualification) => {
+        return this.send("registerCandidate", {
+            from: "0x5029B997846F0D473B0d76d518041d7D46A7dBbE"
+        }, name, qualification)
+    }
+
     registerOnVoteCasted = (callback) => {
-        console.log("Register for onVoteCasted event");
         if (!this.events) {
             this.initEvents()
         }
         this.events.addListener("onVoteCasted", callback);
     }
+
+    registerOnCandidateRegistered = (callback) => {
+        if (!this.events) {
+            this.initEvents()
+        }
+        this.events.addListener("onCandidateRegistered", callback);
+    }
+
 
 }
 

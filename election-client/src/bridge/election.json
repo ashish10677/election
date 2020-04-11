@@ -16,26 +16,6 @@
             "type": "function"
         },
         {
-            "constant": false,
-            "inputs": [
-                {
-                    "name": "_name",
-                    "type": "string"
-                }
-            ],
-            "name": "addCandidate",
-            "outputs": [],
-            "payable": false,
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [],
-            "payable": false,
-            "stateMutability": "nonpayable",
-            "type": "constructor"
-        },
-        {
             "anonymous": false,
             "inputs": [
                 {
@@ -56,6 +36,56 @@
             ],
             "name": "onVoteCasted",
             "type": "event"
+        },
+        {
+            "anonymous": false,
+            "inputs": [
+                {
+                    "indexed": false,
+                    "name": "candidateId",
+                    "type": "bytes32"
+                },
+                {
+                    "indexed": false,
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "indexed": false,
+                    "name": "qualification",
+                    "type": "string"
+                },
+                {
+                    "indexed": false,
+                    "name": "voteCount",
+                    "type": "uint256"
+                }
+            ],
+            "name": "onCandidateRegistered",
+            "type": "event"
+        },
+        {
+            "constant": false,
+            "inputs": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "qualification",
+                    "type": "string"
+                }
+            ],
+            "name": "registerCandidate",
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "bytes32"
+                }
+            ],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
         },
         {
             "constant": false,
@@ -92,6 +122,10 @@
                 {
                     "name": "id",
                     "type": "bytes32"
+                },
+                {
+                    "name": "qualification",
+                    "type": "string"
                 }
             ],
             "payable": false,
@@ -99,5 +133,5 @@
             "type": "function"
         }
     ],
-    "address": "0xd2de9fbd53e1f73540b53664a0e7e37fb118a6d7"
+    "address": "0x10da1cea5c72154910962cb87ba0434ea05ddc27"
 }

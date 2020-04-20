@@ -5,13 +5,13 @@ import "./AbstElection.sol";
 
 contract Election is AbstElection {
 
-    function registerCandidate(string name, string qualification) external returns (bytes32) {
+    function registerCandidate(string name, string qualification) external returns (uint256) {
         // require(!candidatesIdMap[msg.sender]);
         bytes32 index = addCandidate(name, qualification);
 
         emit onCandidateRegistered(index, name, qualification, 0);
 
-        return index;
+        return candidates.length;
     }
 
     function vote(bytes32 candidateId) external {

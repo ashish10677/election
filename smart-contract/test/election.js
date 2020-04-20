@@ -1,27 +1,33 @@
+"use strict";
+
 var Election = artifacts.require("./Election.sol");
 
-contract("Election", (accounts) => {
-
-    it("initializes with 2 candidates", () => {
-        return Election.deployed().then((instance) => {
-            return instance.candidateCount();
-        }).then((count) => {
-            assert.equal(count, 2);
+contract("Election", function (accounts) {
+    it("Registers a candidate", function () {
+        var electionContract;
+        var candidateId;
+        var candidateAddress = accounts[0];
+        var candidateName = "Ashish";
+        var candidateQualification = "BE";
+        return Election.deployed().then(function (instance) {
+            electionContract = instance;
+            instance.onCandidateRegistered({}).watch(function (error, result) {
+                if (error) {
+                    console.log(error);
+                }
+                candidateId = result.args.candidateId;
+            });
+            return instance.registerCandidate(candidateName, candidateQualification, {
+                from: candidateAddress
+            });
+        }).then(function (result) {
+            return electionContract.getCandidate.call(candidateId);
+        }).then((result) => {
+            var [name, voteCount, id, qualification] = result;
+            assert.equal(candidateName, name, "Name wasn't properly added");
+            assert.equal(candidateQualification,qualification, "Qualification wasn't added properly");
+            assert.equal(voteCount, 0, "Vote Count is wrong");
+            assert.equal(id, candidateId, "Candidate Id generated was wrong");
         })
-    })
-
-    it("initializes the candidates with correct values", () => {
-        return Election.deployed().then((instance) => {
-            electionInstance = instance;
-            return electionInstance.candidates(0);
-        })
-        .then((candidate) => {
-            assert.equal(candidate[0], "Candidate 1")
-            return electionInstance.candidates(1);
-        })
-        .then((candidate) => {
-            assert.equal(candidate[0], "Candidate 2")
-        })
-    })
-
-})
+    });
+});

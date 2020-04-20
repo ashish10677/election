@@ -3,7 +3,7 @@ pragma solidity ^0.4.18;
 interface IElection {
 
     //A function to add a candidate for voters to choose from
-    function registerCandidate(string name, string qualification) external returns (bytes32 id);
+    function registerCandidate(string name, string qualification) external returns (uint256 count);
 
     //A function to vote
     function vote(bytes32 candidateId) external;

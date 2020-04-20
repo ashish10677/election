@@ -11,10 +11,10 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var Election = artifacts.require("./Election.sol");
 
 contract("Election", function (accounts) {
+  var candidateId;
+  var candidateAddress = accounts[0];
   it("Registers a candidate", function () {
     var electionContract;
-    var candidateId;
-    var candidateAddress = accounts[0];
     var candidateName = "Ashish";
     var candidateQualification = "BE";
     return Election.deployed().then(function (instance) {
@@ -42,6 +42,30 @@ contract("Election", function (accounts) {
       assert.equal(candidateQualification, qualification, "Qualification wasn't added properly");
       assert.equal(voteCount, 0, "Vote Count is wrong");
       assert.equal(id, candidateId, "Candidate Id generated was wrong");
+    });
+  });
+  it("Votes for a candidate", function () {
+    var electionContract;
+    return Election.deployed().then(function (instance) {
+      electionContract = instance;
+      instance.onVoteCasted({}).watch(function (error, result) {
+        if (error) {
+          console.log(error);
+        }
+      });
+      return instance.vote(candidateId, {
+        from: candidateAddress
+      });
+    }).then(function (result) {
+      return electionContract.getCandidate.call(candidateId);
+    }).then(function (result) {
+      var _result2 = _slicedToArray(result, 4),
+          name = _result2[0],
+          voteCount = _result2[1],
+          id = _result2[2],
+          qualification = _result2[3];
+
+      assert.equal(voteCount, 1, "Vote count is wrong");
     });
   });
 });

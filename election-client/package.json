@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -15,7 +16,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "jest",
+    "test": "jest --forceExit",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -34,6 +35,10 @@
     ]
   },
   "devDependencies": {
-    "jest": "^25.3.0"
+    "@babel/preset-env": "^7.9.5",
+    "@babel/preset-react": "^7.9.4",
+    "babel-jest": "^25.4.0",
+    "jest": "^25.4.0",
+    "react-test-renderer": "^16.13.1"
   }
 }

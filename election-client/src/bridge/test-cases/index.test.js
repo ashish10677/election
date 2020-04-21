@@ -1,3 +1,9 @@
-import Bridge from '../index';
+import ElectionBridge from '../index';
 
-test('creates')
+const electionBridge = new ElectionBridge();
+
+test('Registers a Candidate', () => {
+    return electionBridge.addCandidate("Ashish", "BE").then(data => {
+        expect(data.events.onCandidateRegistered.returnValues.voteCount).toBe("0");
+    });
+});

@@ -1,0 +1,1 @@
+"use strict";var _index=_interopRequireDefault(require("../index"));function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}var electionBridge=new _index.default;test("Registers a Candidate",function(){return electionBridge.addCandidate("Ashish","BE").then(function(e){expect(e.events.onCandidateRegistered.returnValues.voteCount).toBe("0")})});

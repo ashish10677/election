@@ -10,3 +10,17 @@ test('Registers a Candidate', function () {
     expect(data.events.onCandidateRegistered.returnValues.voteCount).toBe("0");
   });
 });
+test('Fetches and Votes for a candidate', function () {
+  var numberOfVotes;
+  var candidateId;
+  return electionBridge.getAllCandidates().then(function (candidateList) {
+    candidateId = candidateList[0];
+    return electionBridge.getCandidate(candidateId);
+  }).then(function (candidateDetails) {
+    numberOfVotes = candidateDetails.voteCount;
+    return electionBridge.voteForCandidate(candidateId);
+  }).then(function (data) {
+    numberOfVotes = Number(numberOfVotes) + 1;
+    expect(data.events.onVoteCasted.returnValues.voteCount).toBe(numberOfVotes.toString());
+  });
+});

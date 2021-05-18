@@ -73,4 +73,4 @@ Once the smart contract is deployed and the client dependencies are installed go
 
 Voila your application is running now.
 
-Check verified commits.
+

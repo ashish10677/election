@@ -72,3 +72,5 @@ Once the smart contract is deployed and the client dependencies are installed go
 `$ yarn start`
 
 Voila your application is running now.
+
+Check verified commits.
